@@ -8,7 +8,7 @@ import { MdMarkEmailUnread } from "react-icons/md";
 import ProfileMenu from "@/components/ProfileMenu/profileMenu";
 import { BsFillTelephoneForwardFill } from "react-icons/bs";
 
-import UserIcon from '@mui/icons-material/Person';
+import UserIcon2 from '@mui/icons-material/Person';
 export default function OfertaDetailsPage() {
   const router = useRouter();
   const { id } = useParams();
@@ -58,7 +58,7 @@ export default function OfertaDetailsPage() {
             
           </>
         ) : (
-          <UserIcon style={{ fontSize: 50, color: 'Black' }} className="UserIcon" />
+          <UserIcon2 style={{ fontSize: 50, color: 'Black' }} className="UserIcon" />
         )}
       </div>
       

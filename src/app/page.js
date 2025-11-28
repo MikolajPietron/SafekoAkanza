@@ -33,7 +33,7 @@ export default function Home() {
           <a href="Kontakt">Kontakt</a>
           <a href="O-nas">O nas</a>
         </div>
-        {/* <img src= "/default_logo.svg" className="LogoIcon"/> */}
+        <img src= "/default_logo.svg" className="LogoIcon"/>
         
         
         {session?.user ? (
@@ -51,60 +51,46 @@ export default function Home() {
           <UserIcon style={{ fontSize: 50, color: 'Black' }} className="UserIcon" />
         )}
       </div>
-      <div className="WaveElement">
-        <img src="/WaveElement2.svg" alt="Wave" className="waveElement" />
+      <div className="heroContainerLanding" onClick={goToOffers}>
+        <div className="samochodyContainerLanding">
+                <div className="overlay-gradientLanding"></div>
+                <div className="contentLanding">
+                    <h3>Premium Cars</h3>
+                    <h2 className="font-serif">Motoryzacja</h2>
+                    <div className="description-boxLanding">
+                        <p>Ochrona klasyków i supersamochodów. Kompleksowe ubezpieczenie w transporcie i garażu.</p>
+                        <a href="#" className="btnLanding">Zobacz ofertę <i className="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+           
+            <div className="nieruchomosciContainerLanding" onClick={goToOffers}>
+                <div className="overlay-gradientLanding"></div>
+                <div className="contentLanding">
+                    <h3>Real Estate</h3>
+                    <h2 className="font-serif">Nieruchomości</h2>
+                    <div className="description-boxLanding">
+                        <p>Inteligentne systemy bezpieczeństwa dla Twojej willi. Monitoring i ochrona fizyczna 24/7.</p>
+                        <a href="#" className="btnLanding">Zobacz ofertę <i className="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            
+            <div className="bizuteriaContainerLanding"onClick={goToOffers}>
+                <div className="overlay-gradientLanding"></div>
+                <div className="contentLanding">
+                    <h3>Jewelry</h3>
+                    <h2 className="font-serif">Biżuteria</h2>
+                    <div className="description-boxLanding">
+                        <p>Dyskrecja i bezpieczeństwo dla Twojej kolekcji sztuki oraz biżuterii.</p>
+                        <a href="#" className="btnLanding">Zobacz ofertę <i className="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
       </div>
-
-        <img src="/default_logo.svg" alt="Logo" className="MainPageLogoImage"/>
-
-      {/* <div className="MainPageText">Get ready for<br/>new marketplace<br/>experience_</div> */}
-
-
-      <div className="SafekoLogo">
       
-
-       
-      </div>
-      
-      <div className="ButtonsContainer">
-        {/* <div className="LoginContainer">
-          <KeyboardDoubleArrowRightIcon style={{fontSize:50,color:"white"}}/>
-          
-        </div> */}
-        <button onClick ={goToOffers} className="OffersButton">Zobacz ogłoszenia</button>
-        {/* <button onClick = {goToLogin} className="LoginButton">Zaloguj się</button> */}
-        {/* <button className="GroupsButton">Grupy</button> */}
-        {/* <div className="OffersContainer">
-          <KeyboardDoubleArrowRightIcon style={{fontSize:50,color:"white"}}/>
-          
-        </div> */}
-        
-        {/* <div className="GroupsContainer">
-          <KeyboardDoubleArrowRightIcon style={{fontSize:50,color:"white"}}/>
-          
-        </div> */}
-        
-      </div>
-      <div className="bottomImages">
-        <div className="samochodyContainer">
-          <div className="samochodyImageContainer">
-          <img src="/carImage.png" alt="Samochody" className="carImage"/>
-        </div>
-        <button className="samochodyButton" onClick={goToOffers}>Samochody</button>
-        </div>
-        <div className="nieruchomosciContainer">
-          <div className="nieruchomosciImageContainer">
-            <img src="/houseImage.png" alt="Nieruchomości" className="houseImage"/>
-          </div>
-          <button className="nieruchomosciButton" onClick={goToOffers}>Nieruchomości</button>
-        </div>
-        <div className="bizuteriaContainer">
-          <div className="bizuteriaImageContainer">
-            <img src="/bizuteriaImage.png" alt="Biżuteria" className="bizuteriaImage"/>
-          </div>
-          <button className="bizuteriaButton" onClick={goToOffers}>Biżuteria</button>
-        </div>
-      </div>
     </div>
     
    

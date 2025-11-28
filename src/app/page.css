@@ -87,7 +87,7 @@ body {
   
 }
 .header{
-  
+ 
   position: fixed;
   display: flex;
   top: 0px;
@@ -105,6 +105,20 @@ body {
   
   
 }
+.heroContainer{
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  border: 2px solid red;
+  overflow: hidden; 
+  
+}
+
+
 .Logout{
   position: absolute;
   left: 50%;
@@ -119,204 +133,197 @@ body {
   font-weight: 800;
   font-family: 'HankenGrotesk';
 }
-.MainPageText{
-  position: absolute;
-  display: flex;
-  width: 30vw;
-  height: 30vh;
-  color: #1d1d1b;
-  left: 5%;
-  top: 35%;
-  font-size: 3vw;
-  font-family: 'HankenGrotesk';
-  font-weight: 500;
-}
-.bottomImages{
-  position: fixed;
-  display: flex;
-  flex-direction: row;
-  bottom: 50px;
-  left: 150px;
-  height: 30vh;
-  align-self: center;
-  width: 70vw;
-  
-  gap: 40px;
-}
-.samochodyContainer, .nieruchomosciContainer, .bizuteriaContainer {
-  display: flex;
-  position: relative;
-  flex: 1;
-  
-  
-  flex-direction: column;
-  place-items: center;
-  padding: 2px;
-  gap: 10px;
-}
-.samochodyImageContainer, .nieruchomosciImageContainer, .bizuteriaImageContainer {
-  height: 80%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
- 
-}
-.carImage{
-  cursor: pointer;
-  border-radius: 3px;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: all 0.4s ease;
+.heroContainerLanding {
+            position: relative;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            flex-direction: row;
+            overflow: hidden; 
+            padding-top: 60px;
+        }
 
-}
-.carImage:hover, .houseImage:hover, .bizuteriaImage:hover {
-  opacity: 0.9;
-}
-.houseImage{
-  cursor: pointer;
-  border-radius: 3px;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: all 0.4s ease;
-  
-}
-.bizuteriaImage{
-  cursor: pointer;
-  border-radius: 3px;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: all 0.4s ease;
-  
-}
-.samochodyButton,.bizuteriaButton,.nieruchomosciButton {
-  height: 5vh;
-  width: 50%;
-  border: 2px solid green;
-  cursor: pointer;
-  
-  font-size: 1vw;
-  font-family: "HankenGrotesk";
-  background-color: #1d1d1b;
-  border: 2px solid #1d1d1b;
-  transition: all 0.4s ease;
-}
-.samochodyButton:hover,.bizuteriaButton:hover,.nieruchomosciButton:hover {
-  background-color: white;
-  color: rgb(0, 0, 0);
-}
+        /* Wspólne style dla wszystkich 3 kontenerów */
+        .samochodyContainerLanding, .nieruchomosciContainerLanding, .bizuteriaContainerLanding {
+            flex: 1; /* Każdy zajmuje równą część */
+            height: 100%;
+            position: relative;
+            z-index: 1;
+            /* Usunąłem border: 2px solid ... dla czystego wyglądu */
+            
+            /* Tło i efekty */
+            background-size: cover;
+            background-position: center;
+            transition: all 0.7s ease-out; /* Płynne rozszerzanie */
+            filter: grayscale(100%) brightness(0.7); /* Domyślnie szare i przyciemnione */
+            cursor: pointer;
+            
+            /* Układ treści wewnątrz */
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end; /* Treść na dole */
+            padding: 3rem;
+            overflow: hidden;
+        }
 
-.headerText {
-  height: 5vh;
-  width: fit-content;
-  display: flex;
-  flex-direction: row;
-  position: absolute;
-  top: 10px;
-  right: 10%;
-  font-family: "HankenGrotesk";
-  
-  display: flex;
-  gap: 50px;
-  color: #1d1d1b;
-  align-items: center;
-}
+        /* Indywidualne tła */
+        .samochodyContainerLanding {
+            background-image: url('https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=2670&auto=format&fit=crop');
+        }
+        .nieruchomosciContainerLanding {
+            background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2670&auto=format&fit=crop');
+            border-left: 1px solid rgba(255,255,255,0.1); /* Delikatne linie podziału */
+            border-right: 1px solid rgba(255,255,255,0.1);
+        }
+        .bizuteriaContainerLanding {
+            background-image: url('https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=2670&auto=format&fit=crop');
+        }
 
-.ButtonsContainer{
-  
-  width: 20%;
-  height: fit-content;
-  position: fixed;
-  display: flex;
-  flex-direction: column;
-  top: 48%;
-  left: 43%;
-  transform: translate(-50%,-50%);
-  
- 
-  
-  justify-content: center;
-  align-items: center;
-  gap: 50px;
-  background-color: transparent;
-  z-index: 10000;
-  
+        /* --- INTERAKCJE HOVER --- */
+        
+        /* Po najechaniu na konkretny kontener */
+        .samochodyContainerLanding:hover,
+        .nieruchomosciContainerLanding:hover,
+        .bizuteriaContainerLanding:hover {
+            flex: 1.1; /* Rozszerzamy ten element (było flex: 1) */
+            filter: grayscale(0%) brightness(1); /* Odzyskujemy kolory */
+            z-index: 10;
+        }
 
-  
-}
-.MainPageLogoImage{
-  
-  position: absolute;
-  left: 43%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+        /* Przyciemnianie pozostałych (opcjonalne, dla lepszego kontrastu) */
+        .heroContainerLanding:hover .samochodyContainerLanding:not(:hover),
+        .heroContainerLanding:hover .nieruchomosciContainerLanding:not(:hover),
+        .heroContainerLanding:hover .bizuteriaContainerLanding:not(:hover) {
+            filter: grayscale(100%) brightness(0.4); /* Mocniej przyciemniamy nieaktywne */
+        }
 
-  top: 15%;
-  transform: translate(-50%, -50%);
-  height: 100vw;
-  width: 70vw;
-  z-index: 100;
-}
+        /* --- TREŚĆ WEWNĄTRZ DIVÓW --- */
+        
+        .contentLanding {
+            transform: translateY(20px);
+            transition: transform 0.5s ease, opacity 0.5s ease;
+            position: relative;
+            z-index: 2;
+           
+            
+            text-align: center;
+        }
 
+        /* Ukrywanie opisu domyślnie */
+        .description-boxLanding {
+            max-height: 0;
+            opacity: 0;
+            height: 30vh;
+            gap: 50px;
+            overflow: hidden;
+            transition: all 0.5s ease;
+            display: flex;
+            flex-direction: column;
+        }
 
-.LoginButton{
-  
-  height: 8vh;
-  width: 15vw;
-  align-self: right;
-  background-color: #1d1d1b;
-  letter-spacing: 1.5px;
-  border: 2px solid #1d1d1b;
-  color: rgb(255, 255, 255);
-  font-size: 1.5vw;
-  font-family: 'HankenGrotesk';
-  
-  cursor: pointer;
-  transition: all 0.4s ease;
-  
-}
+        /* Pokazywanie opisu przy hoverze */
+        .samochodyContainerLanding:hover .description-boxLanding,
+        .nieruchomosciContainerLanding:hover .description-boxLanding,
+        .bizuteriaContainerLanding:hover .description-boxLanding {
+            max-height: 400px;
+            opacity: 1;
+            margin-top: 1rem;
+        }
 
-.OffersButton{
-  height: 9vh;
-  width: 20vw;
-  align-self: right;
-  background-color: #1d1d1b;
-  letter-spacing: 1.2px;
-  border: 2px solid #1d1d1b;
-  color: rgb(255, 255, 255);
-  font-size: 1.8vw;
-  font-family: 'HankenGrotesk';
-  
-  cursor: pointer;
-  transition: all 0.4s ease;
-}
+        .samochodyContainerLanding:hover .contentLanding,
+        .nieruchomosciContainerLanding:hover .contentLanding,
+        .bizuteriaContainerLanding:hover .contentLanding {
+            transform: translateY(0);
+        }
+        .content {
+            transform: translateY(50px);
+            transition: transform 0.5s ease, opacity 0.5s ease;
+            position: relative;
+            z-index: 2;
+        }
 
-.GroupsButton{
-  height: 8vh;
-  width: 15vw;
-  align-self: right;
-  background-color: #1d1d1b;
-  letter-spacing: 1.5px;
-  border: 2px solid #1d1d1b;
-  color: rgb(255, 255, 255);
-  font-size: 1.5vw;
-  font-family: 'HankenGrotesk';
-  
-  cursor: pointer;
-  transition: all 0.4s ease;
-}
-.GroupsButton:hover{
-  background-color: white;
-  color: rgb(0, 0, 0);
-}
-.LoginButton:hover{
-  background-color: white;
-  color: rgb(0, 0, 0);
-}
-.OffersButton:hover{
-  background-color: white;
-  color: rgb(0, 0, 0);;
-}
+        /* Ukrywanie opisu domyślnie */
+        .description-boxLanding {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: all 0.5s ease;
+            
+            display: flex;
+            
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Pokazywanie opisu przy hoverze */
+        .samochodyContainerLanding:hover .description-boxLanding,
+        .nieruchomosciContainerLanding:hover .description-boxLanding,
+        .bizuteriaContainerLanding:hover .description-boxLanding {
+            max-height: 200px;
+            opacity: 1;
+            margin-top: 1rem;
+        }
+
+        .samochodyContainerLanding:hover .contentLanding,
+        .nieruchomosciContainerLanding:hover .contentLanding,
+        .bizuteriaContainerLanding:hover .contentLanding {
+            transform: translateY(0);
+        }
+
+        
+        .contentLanding h2 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            font-weight: 400;
+        }
+        .contentLanding h3 {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.8;
+            margin-bottom: 0.5rem;
+        }
+        .contentLanding p {
+            font-size: 0.8;
+            line-height: 1.6;
+            
+            
+            align-self: center;
+            width: 80%;
+        }
+        .btnLanding {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            border: 2px solid white;
+            padding: 10px;
+            height: 3vw;
+            width: 10vw;
+            display: flex;
+            justify-content: center ;
+            align-items: center ;
+            font-size: 1vw;
+            font-family: 'HankenGrotesk', sans-serif;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            border-radius: 10px;
+        }
+        .btnLanding:hover {
+           background-color: white; 
+           color: black;
+          }
+
+        /* Nakładka cieniująca na dół zdjęcia, żeby tekst był czytelny */
+        .overlay-gradientLanding {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 60%;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            pointer-events: none;
+        }
+

@@ -258,6 +258,8 @@ position: relative;
   position: relative;
   height: 100%;
   
+
+  
   
 }
 .sellerContainer{
@@ -376,9 +378,10 @@ position: relative;
   position: absolute;
   right: 20px;
   bottom: 0px;
-  text-align: center;
+  
   height: 15vh;
   width: 10vw;
+  
   
   font-family: "HankenGrotesk";
 }
@@ -387,13 +390,14 @@ position: relative;
 }
 .detailsUnderNazwa{
   height: 3vh;
-  width: 20vw;
+  width: 17vw;
   display: flex;
   flex-direction: row;
   position: absolute;
   top: 70px;
   gap: 20px;
   left: 10px;
+  
   font-family: "HankenGrotesk";
   
 }
