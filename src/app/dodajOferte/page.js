@@ -107,32 +107,7 @@ export default function DodajOferte() {
   return (
     <form onSubmit={handleSubmit}>
       <div className="OfertaAddContainer">
-        <div className={`profileMenu ${isShowProfileMenu ? 'show' : ''}`}>
-                <ProfileMenu />
-              </div>
-              <div className="header">
-                <div className="headerText">
-                  <a href="Kontakt">Kontakt</a>
-                  <a href="O-nas">O nas</a>
-                </div>
-                <img src= "/default_logo.svg" className="LogoIcon" onClick={() => router.push("/oferty")}/>
-                
-                
-                {session?.user ? (
-                  <>
-                  <button className="UserProfileButton" type='button' onClick={toggleProfileMenu}>
-                    <img
-                      src={session.user.image}
-                      alt={session.user.name}
-                      className="UserProfileImage"
-                    />
-                  </button>
-                    
-                  </>
-                ) : (
-                  <UserIcon style={{ fontSize: 50, color: 'Black' }} className="UserIcon" />
-                )}
-              </div>
+        
         <div className='wybierzOferteContainer'>
           <div className='wybierzOferteText'>
             <h2>Nowe Ogłoszenie</h2>

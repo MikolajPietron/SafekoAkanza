@@ -23,7 +23,7 @@ export default function Oferty() {
     setIsShowProfileMenu(prev => !prev);
   }
 
-  // GET — fetch offers from API
+  
   useEffect(() => {
   async function fetchOfertyAndSamochody() {
     try {
@@ -39,7 +39,7 @@ export default function Oferty() {
         bizuteriaRes.json()
       ]);
 
-      // Optionally, add a category field to distinguish them
+      
       const ofertaWithCategory = ofertaData.map(item => ({ ...item, kategoria: 'nieruchomość' }));
       const samochodWithCategory = samochodData.map(item => ({ ...item, kategoria: 'samochód' }));
       const bizuteriaWithCategory = bizuteriaData.map(item => ({ ...item, kategoria: 'bizuteria' }));
@@ -57,46 +57,17 @@ export default function Oferty() {
   return (
     <div className="OfertyPageContainer">
       
-      <div className="headerOferty">
-        {session && (
-          <button className="UserProfileButtonOferty" onClick={toggleProfileMenu}>
-            <img
-              src={session.user.image}
-              alt={session.user.name}
-              className="UserProfileImageOferty"
-            />
-          </button>
-        )}
-        <img src="default_logo.svg" className="header-logo" onClick={() => router.push("/oferty")} />
-        {session?.user ? (
-          <>
-            
-          </>
-        ) : (
-          <UserIcon style={{ fontSize: 50, color: 'Black' }} className="UserIcon" />
-        )}
-        {session ? (
-        <button className="dodajOferte" onClick={() => router.push('/dodajOferte')}>
-          + Dodaj Ofertę
-        </button>
-      ) : (
-        <button className="dodajOferte" onClick={() => signIn()}>
-          + Dodaj Ofertę
-        </button>
-      )}
-      </div>
-      <div className={`profileMenu ${isShowProfileMenu ? 'show' : ''}`}>
-              <ProfileMenu />
-      </div>
+      
 
       
 
       <div className="WyszukiwarkaOferty">
         <FiltryMenu setSelectedCategory={setSelectedCategory} />
       </div>
+      <div className='OfertyContainer'>
 
-      <div className="OfertyListOferty">
-        {ofertyList
+      
+      {ofertyList
           .filter(oferta => !selectedCategory || oferta.kategoria === selectedCategory)
           .map(oferta => (
             <div key={oferta._id} className="OfertaItemOferty" onClick={() => router.push(`/ofertadetails/${oferta._id}`)}>
@@ -212,7 +183,11 @@ export default function Oferty() {
               
             </div>
           ))}
+          </div>
+
+      
+        
       </div>
-    </div>
+    
   );
 }

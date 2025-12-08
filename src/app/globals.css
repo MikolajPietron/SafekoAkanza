@@ -35,6 +35,93 @@ a {
   text-decoration: none;
 }
 
+
+.headerGlobal {
+  
+  position: fixed;
+  display: flex;
+  top: 0;
+  left: 0;
+  height: 60px;
+  width: 100%;
+  background-color: white;
+  z-index: 1000; 
+  border-bottom: 1px solid #e5e5e5; 
+}
+
+.header-logoGlobal {
+  width: 15vw; 
+  height: fit-content;
+  position: absolute;
+  
+  left: -10px; 
+  cursor: pointer;
+}
+
+.UserIconGlobal {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+}
+
+.UserProfileButtonGlobal {
+  position: absolute;
+  display: flex;
+  right: 20px;
+  height: 40px;
+  width: 40px;
+  top: 10px;
+  border-radius: 10px;
+  border: 2px solid black;
+  cursor: pointer;
+  background: none;
+  padding: 0;
+  overflow: hidden; 
+}
+
+.UserProfileImageGlobal {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.dodajOferteGlobal {
+  position: absolute;
+  right: 80px; 
+  border-radius: 20px;
+  top: 50%;
+  transform: translateY(-50%); 
+  border: 2px solid #1d1d1b;
+  background-color: #1d1d1b;
+  color: rgb(255, 255, 255);
+  font-family: 'HankenGrotesk', sans-serif;
+  font-weight: 800;
+  font-size: 0.9rem;
+  padding: 5px 15px; 
+  transition: all 0.3s ease;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.dodajOferteGlobal:hover {
+  background-color: transparent;
+  color: rgb(0, 0, 0);
+}
+
+
+.profileMenu {
+  display: none;
+  position: fixed;
+  top: 60px;
+  right: 20px;
+  z-index: 999;
+}
+
+.profileMenu.show {
+  display: block;
+}
+
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;

@@ -173,7 +173,7 @@ const [formData, setFormData] = useState({
   const [file, setFile] = useState(null);
     const [uploading, setUploading] = useState(false);
     const router = useRouter();
-    // handlers
+    
     function handleChange(e) {
       setFormData({ ...formData, [e.target.name]: e.target.value });
     }
@@ -189,7 +189,7 @@ const [formData, setFormData] = useState({
       let uploadedFileName = "";
   
       try {
-        // 1. Upload to S3 first
+        
         if (file) {
           const uploadForm = new FormData();
           uploadForm.append('file', file);
@@ -210,7 +210,7 @@ const [formData, setFormData] = useState({
           }
         }
   
-        // 2. Send data to MongoDB
+        
         const res = await fetch('/api/samochod', {
           method: 'POST',
           headers: {
@@ -241,7 +241,7 @@ const [formData, setFormData] = useState({
           imageKey: ''});
           setFile(null);
   
-          // redirect back to /oferty after success
+          
           router.push('/oferty');
         } else {
           alert('Wystąpił błąd przy dodawaniu oferty.');
@@ -331,9 +331,9 @@ const handleBrandChange = (event) => {
   value={selectedBrand}
   onChange={(e) => {
     const brand = e.target.value;
-    setSelectedBrand(brand);                          // updates UI
-    setAvailableModels(modelsByBrand[brand] || []);   // resets models list
-    setFormData((prev) => ({ ...prev, marka: brand })); // saves to main formData
+    setSelectedBrand(brand);                          
+    setAvailableModels(modelsByBrand[brand] || []);   
+    setFormData((prev) => ({ ...prev, marka: brand })); 
   }}
 >
   <option value="" disabled>Marka Samochodu</option>
@@ -347,7 +347,7 @@ const handleBrandChange = (event) => {
   value={formData.model}
   onChange={(e) => {
     const model = e.target.value;
-    setFormData((prev) => ({ ...prev, model })); // save to formData
+    setFormData((prev) => ({ ...prev, model })); 
   }}
   disabled={!selectedBrand}
 >

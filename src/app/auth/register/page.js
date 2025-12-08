@@ -29,14 +29,14 @@ export default function RegisterPage() {
       return;
     }
 
-    // After successful registration, auto login
+    
     await signIn("credentials", {
       email,
       password,
       redirect: false,
     });
 
-    router.push("/"); // redirect after login
+    router.push("/"); 
   };
 
   return (

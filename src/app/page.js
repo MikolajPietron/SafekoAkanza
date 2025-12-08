@@ -25,32 +25,7 @@ export default function Home() {
   }
   return (
     <div className="PageContainer">
-      <div className={`profileMenu ${isShowProfileMenu ? 'show' : ''}`}>
-        <ProfileMenu />
-      </div>
-      <div className="header">
-        <div className="headerText">
-          <a href="Kontakt">Kontakt</a>
-          <a href="O-nas">O nas</a>
-        </div>
-        <img src= "/default_logo.svg" className="LogoIcon"/>
-        
-        
-        {session?.user ? (
-          <>
-          <button className="UserProfileButton" onClick={toggleProfileMenu}>
-            <img
-              src={session.user.image}
-              alt={session.user.name}
-              className="UserProfileImage"
-            />
-          </button>
-            
-          </>
-        ) : (
-          <UserIcon style={{ fontSize: 50, color: 'Black' }} className="UserIcon" />
-        )}
-      </div>
+      
       <div className="heroContainerLanding" onClick={goToOffers}>
         <div className="samochodyContainerLanding">
                 <div className="overlay-gradientLanding"></div>

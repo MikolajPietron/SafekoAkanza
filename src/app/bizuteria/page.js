@@ -55,7 +55,7 @@ export default function BizuteriaPage() {
   const [file, setFile] = useState(null);
     const [uploading, setUploading] = useState(false);
     const router = useRouter();
-    // handlers
+    
     function handleChange(e) {
       setFormData({ ...formData, [e.target.name]: e.target.value });
     }
@@ -124,7 +124,7 @@ export default function BizuteriaPage() {
           imageKey: ''});
           setFile(null);
   
-          // redirect back to /oferty after success
+          
           router.push('/oferty');
         } else {
           alert('Wystąpił błąd przy dodawaniu oferty.');

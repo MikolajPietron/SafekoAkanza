@@ -4,28 +4,52 @@
   font-weight: normal;
   font-style: normal;
 }
-.Logout{
-  position: absolute;
-  left: 50%;
-  z-index: 1000;
-}
+
 body {
   font-family: 'NeueMontreal', sans-serif;
 }
 
-.OfertyPageContainer{
+.OfertyPageContainer {
     height: 100vh;
     width: 100vw;
     background-color: rgb(255, 255, 255);
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    position: relative;
+    
+    /* Flex settings */
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    justify-content: flex-start; /* Układamy od góry */
+    align-items: center;
     
+    /* Scroll settings */
+    overflow-y: auto;
+    position: relative;
     
+    /* KLUCZOWA ZMIANA: Odsunięcie treści od góry, by nie wchodziła pod header */
+    padding-top: 100px; 
+    
+    /* Odstęp między wyszukiwarką a ofertami */
+    gap: 50px; 
+}
+.OfertyContainer {
+    position: relative;
+    /* height: 100%; <-- Usuń lub zmień na auto, bo to blokuje rozciąganie */
+    height: auto; 
+    
+    display: flex;
+    width: 75%;
+    flex-direction: column;
+    gap: 50px;
+    
+    /* Usuń stary margin-top */
+    margin-top: 0; 
+    
+    /* Dodaj odstęp na dole strony, żeby ostatnia oferta nie była ucięta */
+    margin-bottom: 50px; 
+}
+.Logout{
+  position: absolute;
+  left: 50%;
+  z-index: 1000;
 }
 .dodajOferte{
     position: absolute;
@@ -195,10 +219,10 @@ position: relative;
 }
 .OfertyListOferty {
  
-
+border: 2px solid red ;
 
   position: relative;       
-  margin-top: 200px;             
+  margin-top: 500px;             
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
@@ -448,15 +472,20 @@ position: relative;
   font-family: "HankenGrotesk";
   cursor: pointer;
 } 
-.WyszukiwarkaOferty{
-  position: absolute;
-  
-  top: 10%;
-  display: flex;
-  flex-direction: row;
-  height: 10vh;
-  width: 73vw;
-  
+.WyszukiwarkaOferty {
+    position: relative;
+    /* Usuń top: 10% - padding w rodzicu już załatwił sprawę */
+    /* top: 10%;  <-- USUŃ TO */
+    
+    display: flex;
+    flex-direction: row;
+    height: 10vh;
+    width: 73vw;
+    
+    /* Opcjonalnie: jeśli chcesz jeszcze większy odstęp od nagłówka, dodaj tu margin-top */
+    margin-top: 20px; 
+    
+    border: 2px solid red; /* Debug border */
 }
 .kategoria{
   border: 3px solid black;

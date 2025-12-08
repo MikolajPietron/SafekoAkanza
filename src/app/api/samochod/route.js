@@ -10,7 +10,7 @@ export async function POST(request) {
     await connectDB();
 
     const samochod = new Samochod({
-      pojazdTyp: body.pojazdTyp,      // "Osobowy" or "Motocykl"
+      pojazdTyp: body.pojazdTyp,      
       marka: body.marka,
       model: body.model,
       rok: body.rok,

@@ -2,8 +2,7 @@ import { PrismaClient } from "@prisma/client";
 import bcrypt from "bcryptjs";
 import { NextResponse } from "next/server";
 
-// Prevent multiple PrismaClient instances in development
-let prisma;
+
 if (!global.prisma) {
   global.prisma = new PrismaClient();
 }
@@ -21,7 +20,7 @@ export async function POST(req) {
       );
     }
 
-    // Check if user already exists
+    
     const existingUser = await prisma.user.findUnique({
       where: { email },
     });
@@ -33,10 +32,10 @@ export async function POST(req) {
       );
     }
 
-    // Hash password safely
+    
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // Create user
+    
     const user = await prisma.user.create({
       data: {
         name,
@@ -45,7 +44,7 @@ export async function POST(req) {
       },
     });
 
-    // Remove password before sending response
+   
     const { password: _, ...safeUser } = user;
 
     return NextResponse.json(

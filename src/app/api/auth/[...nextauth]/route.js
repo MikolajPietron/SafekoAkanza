@@ -19,22 +19,22 @@ export const authOptions = {
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
-        // 1. Find user by email
+        
         const user = await prisma.user.findUnique({
           where: { email: credentials?.email },
         });
 
-        // 2. If no user or no password, fail
+        
         if (!user || !user.password) return null;
 
-        // 3. Compare password
+        
         const isValid = await bcrypt.compare(
           credentials.password,
           user.password
         );
         if (!isValid) return null;
 
-        // 4. Return user object (NextAuth will include it in JWT/session)
+       
         return {
           id: user.id,
           name: user.name,
