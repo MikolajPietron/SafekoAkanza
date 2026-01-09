@@ -54,7 +54,8 @@ a {
   height: fit-content;
   position: absolute;
   
-  left: -10px; 
+  left: -50px;
+  top: -35px; 
   cursor: pointer;
 }
 
@@ -110,7 +111,7 @@ a {
 
 
 .profileMenu {
-  display: none;
+  display: flex;
   position: fixed;
   top: 60px;
   right: 20px;

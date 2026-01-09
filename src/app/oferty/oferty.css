@@ -10,106 +10,97 @@ body {
 }
 
 .OfertyPageContainer {
-    height: 100vh;
-    width: 100vw;
-    background-color: rgb(255, 255, 255);
-    
-    /* Flex settings */
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start; /* Układamy od góry */
-    align-items: center;
-    
-    /* Scroll settings */
-    overflow-y: auto;
-    position: relative;
-    
-    /* KLUCZOWA ZMIANA: Odsunięcie treści od góry, by nie wchodziła pod header */
-    padding-top: 100px; 
-    
-    /* Odstęp między wyszukiwarką a ofertami */
-    gap: 50px; 
+  height: 100vh;
+  width: 100vw;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  overflow-y: auto;
+  position: relative;
+  padding-top: 100px;
+  gap: 50px;
 }
+
 .OfertyContainer {
-    position: relative;
-    /* height: 100%; <-- Usuń lub zmień na auto, bo to blokuje rozciąganie */
-    height: auto; 
-    
-    display: flex;
-    width: 75%;
-    flex-direction: column;
-    gap: 50px;
-    
-    /* Usuń stary margin-top */
-    margin-top: 0; 
-    
-    /* Dodaj odstęp na dole strony, żeby ostatnia oferta nie była ucięta */
-    margin-bottom: 50px; 
+  position: relative;
+  height: auto;
+  display: flex;
+  width: 75%;
+  flex-direction: column;
+  gap: 50px;
+  margin-top: 0;
+  margin-bottom: 50px;
 }
-.Logout{
+
+.Logout {
   position: absolute;
   left: 50%;
   z-index: 1000;
 }
-.dodajOferte{
-    position: absolute;
-    right: 250px;
-    border-radius: 20px;
-    top: 50%;
-    border:2px solid #1d1d1b;
-    transform: translate(0, -50%);
-    background-color: #1d1d1b;
-    color: rgb(255, 255, 255);
-    font-family: 'HankenGrotesk';
-    font-weight: 800;
-    font-size: 1rem;
-    height: 4.5vh;
-    width: 8%;
-    transition: all 0.3s ease;
-    cursor: pointer;
+
+.dodajOferte {
+  position: absolute;
+  right: 250px;
+  border-radius: 20px;
+  top: 50%;
+  border: 2px solid #1d1d1b;
+  transform: translate(0, -50%);
+  background-color: #1d1d1b;
+  color: rgb(255, 255, 255);
+  font-family: 'HankenGrotesk';
+  font-weight: 800;
+  font-size: 1rem;
+  height: 4.5vh;
+  width: 8%;
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
-.dodajOferte:hover{
-    background-color: transparent;
-    color: rgb(0, 0, 0);
-    
+
+.dodajOferte:hover {
+  background-color: transparent;
+  color: rgb(0, 0, 0);
 }
-.headerOferty{
+
+.headerOferty {
   position: fixed;
   display: flex;
   top: 0;
-  
   height: 60px;
   width: 100%;
   background-color: white;
+  z-index: 100;
 }
-.header-logo{
+
+.header-logo {
   width: 15vw;
   height: fit-content;
-  position: absolute ;
+  position: absolute;
   left: -70px;
   top: -40px;
   cursor: pointer;
-  
 }
-.UserIcon{
+
+.UserIcon {
   position: absolute;
   right: 10px;
   top: 5px;
-  
-  
 }
-.UserProfileButtonOferty{
+
+.UserProfileButtonOferty {
   position: absolute;
   display: flex;
   right: 20px;
   height: 40px;
   width: 40px;
   top: 10px;
-  border-radius: 10px ;
+  border-radius: 10px;
   border: 2px solid black;
   cursor: pointer;
 }
-.UserProfileImageOferty{
+
+.UserProfileImageOferty {
   position: absolute;
   object-fit: cover;
   height: 100%;
@@ -120,22 +111,22 @@ body {
   transform: translate(-50%, -50%);
 }
 
-
-.Photos{
-height: 60%;
-width: 40%;
-display: grid;
-gap: 0;
-grid-template-columns: repeat(2,1fr );
-grid-template-rows: repeat(2,1fr);
-background-color: transparent;
-border-radius: 20px;
-position: absolute;
-place-items: center;
-right: 20px;
-top: 20px;
+.Photos {
+  height: 60%;
+  width: 40%;
+  display: grid;
+  gap: 0;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  background-color: transparent;
+  border-radius: 20px;
+  position: absolute;
+  place-items: center;
+  right: 20px;
+  top: 20px;
 }
-.Photo1input{
+
+.Photo1input {
   height: 100%;
   width: 100%;
   background-color: transparent;
@@ -144,60 +135,41 @@ top: 20px;
   cursor: pointer;
   z-index: 1000;
 }
-.addPhotoIcon{
+
+.addPhotoIcon {
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  
 }
-.Photo1{
-width: 70%;
-height: 80%;
-border: 4px solid rgb(0, 0, 0);
-border-radius: 20px ;
-position: relative;
+
+.Photo1,
+.Photo2,
+.Photo3,
+.Photo4 {
+  width: 70%;
+  height: 80%;
+  border: 4px solid rgb(0, 0, 0);
+  border-radius: 20px;
+  position: relative;
 }
-.Photo2{
-width: 70%;
-height: 80%;
-border: 4px solid rgb(0, 0, 0);
-border-radius: 20px ;
-position: relative;
-}
-.Photo3{
-width: 70%;
-height: 80%;
-border: 4px solid rgb(0, 0, 0);
-border-radius: 20px ;
-position: relative;
-}
-.Photo4{
-width: 70%;
-height: 80%;
-border: 4px solid rgb(0, 0, 0);
-border-radius: 20px ;
-position: relative;
-}
-.nazwacenaopis{
+
+.nazwacenaopis {
   position: relative;
   display: flex;
-  
   height: 100vh;
   width: 30vw;
   flex-direction: row;
-  
 }
 
-.OfertaAddModal::placeholder{
-    text-align: left;
-    color: black;
-    
+.OfertaAddModal::placeholder {
+  text-align: left;
+  color: black;
 }
-.SubmitOferta{
+
+.SubmitOferta {
   height: 6vh;
   width: 12vw;
-  
   position: absolute;
   left: 50%;
   transform: translate(-50%);
@@ -211,109 +183,110 @@ position: relative;
   transition: all 0.3s ease;
   cursor: pointer;
 }
-.SubmitOferta:hover{
+
+.SubmitOferta:hover {
   scale: 1.2;
   background-color: transparent;
   color: black;
   border: 2px solid black;
 }
-.OfertyListOferty {
- 
-border: 2px solid red ;
 
-  position: relative;       
-  margin-top: 500px;             
+.OfertyListOferty {
+  position: relative;
+  margin-top: 500px;
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
-  overflow-y: auto;          /* scroll only inside */
+  overflow-y: auto;
   width: 80vw;
   gap: 70px;
   align-items: center;
-  padding: 10px 0;          /* avoid clipping */
+  padding: 10px 0;
 }
+
 .OfertyListOferty::-webkit-scrollbar {
   width: 6px;
 }
+
 .OfertyListOferty::-webkit-scrollbar-thumb {
   background-color: #888;
   border-radius: 10px;
 }
+
 .OfertyListOferty::-webkit-scrollbar-thumb:hover {
   background-color: #555;
 }
-.OfertaItemOferty{
+
+.OfertaItemOferty {
   position: relative;
   width: 100%;
   height: 40vh;
-  
+  min-height: 300px;
   border-top: 1px solid #1d1d1b;
   border-bottom: 1px solid #1d1d1b;
   color: #1d1d1b;
   padding: 20px;
   justify-content: flex-start;
   align-items: center;
-  
   display: flex;
   transition: all 0.3s ease;
   cursor: pointer;
 }
-.OfertaItemOferty:hover{
+
+.OfertaItemOferty:hover {
   transform: scale(1.02);
 }
-.imageContainerOfertyOferty{
+
+.imageContainerOfertyOferty {
   position: relative;
   left: 0px;
   height: 100%;
   width: 40%;
-  
   display: flex;
 }
-.OfertaPhoto1Oferty{
-  
-  
+
+.OfertaPhoto1Oferty {
   width: 100%;
   height: 100%;
   flex: 1;
+  object-fit: cover;
 }
-.detailsContainer{
+
+.detailsContainer {
   width: 40%;
   display: flex;
   position: relative;
   height: 100%;
-  
-
-  
-  
 }
-.sellerContainer{
+
+.sellerContainer {
   width: 20%;
   height: 100%;
- border-left:2px solid #1d1d1b;
-  display: flex ;
+  border-left: 2px solid #1d1d1b;
+  display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 10px;
   gap: 10px;
 }
-.sellerIconContainer{
-  
+
+.sellerIconContainer {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
 }
-.sellerImie{
- 
+
+.sellerImie {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
 }
-.sellerDetails{
-  
+
+.sellerDetails {
   width: 100%;
   flex-direction: column;
   height: 20vh;
@@ -323,9 +296,9 @@ border: 2px solid red ;
   align-items: center;
   text-align: center;
   font-family: "HankenGrotesk";
-} 
-.sellerInfo{
-  
+}
+
+.sellerInfo {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -333,8 +306,8 @@ border: 2px solid red ;
   text-align: center;
   font-family: "HankenGrotesk";
 }
-.sellerDane{
-  
+
+.sellerDane {
   width: 100%;
   display: flex;
   margin-top: 20px;
@@ -343,23 +316,21 @@ border: 2px solid red ;
   justify-content: flex-start;
   align-items: flex-start;
   font-family: "HankenGrotesk";
-  
 }
-.sellerEmail{
-  
+
+.sellerEmail {
   width: 100%;
   height: 3vh;
   justify-content: center;
   align-self: center;
   text-align: right;
-  
   display: flex;
   flex-direction: row;
   gap: 10px;
   font-family: "HankenGrotesk";
 }
-.sellerTelefon{
-  
+
+.sellerTelefon {
   width: 100%;
   height: 3vh;
   justify-content: center;
@@ -371,29 +342,35 @@ border: 2px solid red ;
   letter-spacing: 1px;
   font-family: "HankenGrotesk";
 }
-.kontaktSellerButton{
+
+.kontaktSellerButton {
   height: 7vh;
   width: 100%;
   display: flex;
   justify-content: center;
-  
 }
-.sellerContactButton{
+
+.sellerContactButton {
   height: 5vh;
+  min-height: 40px;
   width: 8vw;
+  min-width: 100px;
   border: 2px solid #1d1d1b;
   background-color: #1d1d1b;
+  color: white;
   border-radius: 1px;
   font-family: "HankenGrotesk";
-  font-size: 1vw;
+  font-size: 0.9rem;
   cursor: pointer;
   transition: all 0.3s ease;
 }
-.sellerContactButton:hover{
+
+.sellerContactButton:hover {
   background-color: white;
   color: black;
 }
-.lokalizacjaContainer{
+
+.lokalizacjaContainer {
   display: flex;
   gap: 10px;
   flex-direction: column;
@@ -402,17 +379,22 @@ border: 2px solid red ;
   position: absolute;
   right: 20px;
   bottom: 0px;
-  
   height: 15vh;
   width: 10vw;
-  
-  
+  min-width: 120px;
   font-family: "HankenGrotesk";
 }
-.lokalizacjaContainer h1{
+
+.lokalizacjaContainer h1 {
   font-size: 1.4vw;
 }
-.detailsUnderNazwa{
+
+.lokalizacjaContainer p {
+  font-size: 0.85rem;
+  text-align: right;
+}
+
+.detailsUnderNazwa {
   height: 3vh;
   width: 17vw;
   display: flex;
@@ -421,11 +403,10 @@ border: 2px solid red ;
   top: 70px;
   gap: 20px;
   left: 10px;
-  
   font-family: "HankenGrotesk";
-  
 }
-.nazwa1{
+
+.nazwa1 {
   position: absolute;
   top: 30px;
   left: 10px;
@@ -433,7 +414,8 @@ border: 2px solid red ;
   font-size: 1.5vw;
   letter-spacing: 1.5px;
 }
-.cena1{
+
+.cena1 {
   position: absolute;
   top: 34px;
   right: 20px;
@@ -441,29 +423,31 @@ border: 2px solid red ;
   font-size: 1.2vw;
   letter-spacing: 1.5px;
 }
-.kupOferty{
+
+.kupOferty {
   position: absolute;
   bottom: 50px;
   left: 10px;
   height: 5vh;
+  min-height: 40px;
   width: 8vw;
+  min-width: 120px;
   background-color: #1d1d1b;
   border: 2px solid #1d1d1b;
   color: #ffffff;
   font-family: 'HankenGrotesk';
-  
-  font-size: 1rem;
+  font-size: 0.9rem;
   text-align: center;
-  
   cursor: pointer;
   transition: all 0.3s ease;
 }
-.kup:hover{
+
+.kupOferty:hover {
   background-color: white;
   color: black;
 }
 
-.szczegolyOferty{
+.szczegolyOferty {
   position: absolute;
   bottom: 10px;
   left: 20px;
@@ -471,86 +455,370 @@ border: 2px solid red ;
   font-weight: 800;
   font-family: "HankenGrotesk";
   cursor: pointer;
-} 
-.WyszukiwarkaOferty {
-    position: relative;
-    /* Usuń top: 10% - padding w rodzicu już załatwił sprawę */
-    /* top: 10%;  <-- USUŃ TO */
-    
-    display: flex;
-    flex-direction: row;
-    height: 10vh;
-    width: 73vw;
-    
-    /* Opcjonalnie: jeśli chcesz jeszcze większy odstęp od nagłówka, dodaj tu margin-top */
-    margin-top: 20px; 
-    
-    border: 2px solid red; /* Debug border */
 }
-.kategoria{
+
+.WyszukiwarkaOferty {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  max-width: 1200px;
+  margin-top: 20px;
+}
+
+.kategoria {
   border: 3px solid black;
   width: 100%;
   height: 7vh;
   border-radius: 17px;
 }
-.mainInfo{
+
+.mainInfo {
   display: flex;
-  border: 2px solid green;
   width: 100%;
   height: 90%;
   gap: 20px;
   flex-direction: column;
   margin-top: 90px;
 }
-.OfertaAddModal input[class = 'nazwa'],
-.OfertaAddModal input[class = 'cena'],
-.OfertaAddModal input[class = 'opis'],
-.OfertaAddModal input[class = 'lokalizacja']{
-    width: 100%;
-    border-radius: 20px;
-    height: 11%;
-    border: none;
-    border: 3px solid black;
-    background-color: rgb(255, 255, 255);
-    font-weight: 800;
-    font-family: 'HankenGrotesk';
-    font-size: 1vw;
-    color: black;
-    justify-content: center;
-    align-items: center;
-    padding-left: 20px;
 
+.OfertaAddModal input[class='nazwa'],
+.OfertaAddModal input[class='cena'],
+.OfertaAddModal input[class='opis'],
+.OfertaAddModal input[class='lokalizacja'] {
+  width: 100%;
+  border-radius: 20px;
+  height: 11%;
+  border: 3px solid black;
+  background-color: rgb(255, 255, 255);
+  font-weight: 800;
+  font-family: 'HankenGrotesk';
+  font-size: 1vw;
+  color: black;
+  justify-content: center;
+  align-items: center;
+  padding-left: 20px;
 }
-.houseInfo{
-  border: 2px solid rgb(0, 255, 213);
+
+.houseInfo {
   display: flex;
   width: 50%;
   gap: 20px;
   flex-direction: column;
   margin-top: 152px;
-  
-
 }
-.kategoriaMainInfo{
+
+.kategoriaMainInfo {
   width: 50%;
   display: flex;
   height: 100%;
-  
   position: relative;
   flex-direction: column;
 }
-.houseInfo input{
+
+.houseInfo input {
   width: 100%;
-    border-radius: 20px;
-    height: 11%;
-    border: none;
-    border: 3px solid black;
-    background-color: rgb(255, 255, 255);
-    font-weight: 800;
-    font-family: 'HankenGrotesk';
-    font-size: 1vw;
-    color: black;
-    justify-content: center;
-    align-items: center;
-    padding-left: 20px;
+  border-radius: 20px;
+  height: 11%;
+  border: 3px solid black;
+  background-color: rgb(255, 255, 255);
+  font-weight: 800;
+  font-family: 'HankenGrotesk';
+  font-size: 1vw;
+  color: black;
+  justify-content: center;
+  align-items: center;
+  padding-left: 20px;
 }
+
+/* ==================== TABLET (768px - 1024px) ==================== */
+@media (max-width: 1024px) {
+  .OfertyPageContainer {
+    padding-top: 80px;
+    gap: 30px;
+  }
+
+  .OfertyContainer {
+    width: 90%;
+    gap: 40px;
+  }
+
+  .OfertaItemOferty {
+    height: auto;
+    min-height: 280px;
+    flex-wrap: wrap;
+    padding: 15px;
+  }
+
+  .imageContainerOfertyOferty {
+    width: 35%;
+    min-width: 200px;
+  }
+
+  .detailsContainer {
+    width: 40%;
+  }
+
+  .sellerContainer {
+    width: 25%;
+  }
+
+  .nazwa1 {
+    font-size: 1.2rem;
+  }
+
+  .cena1 {
+    font-size: 1rem;
+  }
+
+  .detailsUnderNazwa {
+    width: auto;
+    gap: 15px;
+    font-size: 0.85rem;
+  }
+
+  .lokalizacjaContainer {
+    width: auto;
+    min-width: 100px;
+  }
+
+  .lokalizacjaContainer h1 {
+    font-size: 1rem;
+  }
+
+  .szczegolyOferty {
+    font-size: 0.9rem;
+  }
+
+  .sellerEmail,
+  .sellerTelefon {
+    font-size: 0.8rem;
+  }
+
+  .WyszukiwarkaOferty {
+    width: 90%;
+  }
+}
+
+/* ...existing code... */
+
+/* ==================== SMALL TABLETS / LARGE MOBILE (576px - 768px) ==================== */
+@media (max-width: 768px) {
+  .OfertyPageContainer {
+    padding-top: 70px;
+    gap: 25px;
+  }
+
+  .OfertyContainer {
+    width: 95%;
+    gap: 30px;
+    margin-bottom: 30px;
+  }
+
+  .OfertaItemOferty {
+    flex-direction: column !important;
+    height: auto !important;
+    min-height: auto !important;
+    padding: 15px !important;
+    gap: 0 !important;
+    align-items: stretch !important;
+  }
+
+  .OfertaItemOferty:hover {
+    transform: none;
+  }
+
+  /* IMAGE */
+  .imageContainerOfertyOferty {
+    width: 100% !important;
+    height: 220px !important;
+    min-width: unset !important;
+    position: relative !important;
+    left: 0 !important;
+  }
+
+  .OfertaPhoto1Oferty {
+    border-radius: 10px;
+    object-fit: cover;
+  }
+
+  /* DETAILS CONTAINER */
+  .detailsContainer {
+    width: 100% !important;
+    height: auto !important;
+    min-height: unset !important;
+    display: flex !important;
+    flex-direction: column !important;
+    position: relative !important;
+    padding: 15px 0 !important;
+    gap: 10px !important;
+  }
+
+  /* NAME */
+  .nazwa1 {
+    position: static !important;
+    font-size: 1.25rem !important;
+    margin-bottom: 5px !important;
+    order: 1;
+  }
+
+  /* PRICE */
+  .cena1 {
+    position: static !important;
+    font-size: 1.15rem !important;
+    font-weight: 700 !important;
+    color: #1d1d1b;
+    order: 2;
+  }
+
+  /* DETAILS UNDER NAME */
+  .detailsUnderNazwa {
+    position: static !important;
+    width: 100% !important;
+    height: auto !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 10px !important;
+    font-size: 0.9rem !important;
+    margin: 10px 0 !important;
+    order: 3;
+  }
+
+  .detailsUnderNazwa p {
+    background: #f0f0f0;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin: 0;
+  }
+
+  /* LOCATION */
+  .lokalizacjaContainer {
+    position: static !important;
+    width: 100% !important;
+    height: auto !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    margin: 15px 0 !important;
+    padding-top: 15px !important;
+    border-top: 1px solid #e0e0e0;
+    gap: 5px !important;
+    order: 4;
+  }
+
+  .lokalizacjaContainer h1 {
+    font-size: 1rem !important;
+  }
+
+  .lokalizacjaContainer p {
+    text-align: left !important;
+    font-size: 0.85rem !important;
+  }
+
+  /* BUY BUTTON */
+  .kupOferty {
+    position: static !important;
+    width: 100% !important;
+    height: 48px !important;
+    font-size: 1rem !important;
+    margin-top: 10px !important;
+    order: 5;
+  }
+
+  /* DETAILS LINK */
+  .szczegolyOferty {
+    position: static !important;
+    display: block !important;
+    text-align: center !important;
+    font-size: 0.95rem !important;
+    margin-top: 12px !important;
+    order: 6;
+  }
+
+  /* SELLER CONTAINER */
+  .sellerContainer {
+    width: 100% !important;
+    height: auto !important;
+    border-left: none !important;
+    border-top: 2px solid #1d1d1b !important;
+    padding: 20px 0 10px 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 15px !important;
+  }
+
+  .sellerIconContainer {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  .sellerDetails {
+    width: 100% !important;
+    height: auto !important;
+    align-items: center !important;
+    text-align: center !important;
+    padding: 0 !important;
+  }
+
+  .sellerImie {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  .sellerImie h1 {
+    font-size: 1.1rem !important;
+  }
+
+  .sellerInfo {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  .sellerDane {
+    width: 100% !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 10px !important;
+    margin-top: 15px !important;
+  }
+
+  .sellerEmail,
+  .sellerTelefon {
+    width: auto !important;
+    height: auto !important;
+    font-size: 0.9rem !important;
+    justify-content: center !important;
+  }
+
+  .kontaktSellerButton {
+    width: 100% !important;
+    height: auto !important;
+    margin-top: 10px !important;
+  }
+
+  .sellerContactButton {
+    width: 100% !important;
+    height: 48px !important;
+    font-size: 1rem !important;
+  }
+
+  /* SEARCH/FILTER BAR */
+  .WyszukiwarkaOferty {
+    width: 95% !important;
+  }
+
+  /* HEADER */
+  .dodajOferte {
+    right: 80px;
+    width: 100px;
+    font-size: 0.8rem;
+  }
+
+  .header-logo {
+    width: 120px;
+    left: 10px;
+    top: 5px;
+  }
+}
+
+/* ...existing code... */

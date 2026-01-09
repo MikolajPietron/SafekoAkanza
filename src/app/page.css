@@ -9,7 +9,8 @@ body {
   font-family: 'NeueMontreal', sans-serif;
   overflow: hidden;
 }
-.PageContainer{
+
+.PageContainer {
   height: 100vh;
   width: 100vw;
   position: relative;
@@ -17,20 +18,16 @@ body {
   justify-content: center;
   align-items: center;
   background-color: white;
-  
-
- 
 }
-.WaveElement{
+
+.WaveElement {
   position: absolute;
   right: -250px;
   top: 0;
   height: 100vh;
-  
 }
 
-
-.heroContainer{
+.heroContainer {
   position: relative;
   height: 100vh;
   width: 100vw;
@@ -39,201 +36,398 @@ body {
   align-items: center;
   flex-direction: row;
   border: 2px solid red;
-  overflow: hidden; 
-  
+  overflow: hidden;
 }
 
-
-
 .heroContainerLanding {
-            position: relative;
-            height: 100vh;
-            width: 100vw;
-            display: flex;
-            flex-direction: row;
-            overflow: hidden; 
-            padding-top: 60px;
-        }
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  padding-top: 60px;
+}
 
-        
-        .samochodyContainerLanding, .nieruchomosciContainerLanding, .bizuteriaContainerLanding {
-            flex: 1; 
-            height: 100%;
-            position: relative;
-            z-index: 1;
-           
-            
-           
-            background-size: cover;
-            background-position: center;
-            transition: all 0.7s ease-out; 
-            filter: grayscale(100%) brightness(0.7); 
-            cursor: pointer;
-            
-            
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end; 
-            padding: 3rem;
-            overflow: hidden;
-        }
+.samochodyContainerLanding,
+.nieruchomosciContainerLanding,
+.bizuteriaContainerLanding {
+  flex: 1;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+  background-size: cover;
+  background-position: center;
+  transition: all 0.7s ease-out;
+  filter: grayscale(100%) brightness(0.7);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 3rem;
+  overflow: hidden;
+}
 
-        
-        .samochodyContainerLanding {
-            background-image: url('https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=2670&auto=format&fit=crop');
-        }
-        .nieruchomosciContainerLanding {
-            background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2670&auto=format&fit=crop');
-            border-left: 1px solid rgba(255,255,255,0.1); 
-            border-right: 1px solid rgba(255,255,255,0.1);
-        }
-        .bizuteriaContainerLanding {
-            background-image: url('https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=2670&auto=format&fit=crop');
-        }
+.samochodyContainerLanding {
+  background-image: url('https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=2670&auto=format&fit=crop');
+}
 
-        
-        .samochodyContainerLanding:hover,
-        .nieruchomosciContainerLanding:hover,
-        .bizuteriaContainerLanding:hover {
-            flex: 1.1; 
-            filter: grayscale(0%) brightness(1); 
-            z-index: 10;
-        }
+.nieruchomosciContainerLanding {
+  background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2670&auto=format&fit=crop');
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
 
-        
-        .heroContainerLanding:hover .samochodyContainerLanding:not(:hover),
-        .heroContainerLanding:hover .nieruchomosciContainerLanding:not(:hover),
-        .heroContainerLanding:hover .bizuteriaContainerLanding:not(:hover) {
-            filter: grayscale(100%) brightness(0.4); 
-        }
+.bizuteriaContainerLanding {
+  background-image: url('https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=2670&auto=format&fit=crop');
+}
 
-       
-        
-        .contentLanding {
-            transform: translateY(20px);
-            transition: transform 0.5s ease, opacity 0.5s ease;
-            position: relative;
-            z-index: 2;
-           
-            
-            text-align: center;
-        }
+.samochodyContainerLanding:hover,
+.nieruchomosciContainerLanding:hover,
+.bizuteriaContainerLanding:hover {
+  flex: 1.1;
+  filter: grayscale(0%) brightness(1);
+  z-index: 10;
+}
 
-        
-        .description-boxLanding {
-            max-height: 0;
-            opacity: 0;
-            height: 30vh;
-            gap: 50px;
-            overflow: hidden;
-            transition: all 0.5s ease;
-            display: flex;
-            flex-direction: column;
-        }
+.heroContainerLanding:hover .samochodyContainerLanding:not(:hover),
+.heroContainerLanding:hover .nieruchomosciContainerLanding:not(:hover),
+.heroContainerLanding:hover .bizuteriaContainerLanding:not(:hover) {
+  filter: grayscale(100%) brightness(0.4);
+}
 
-        
-        .samochodyContainerLanding:hover .description-boxLanding,
-        .nieruchomosciContainerLanding:hover .description-boxLanding,
-        .bizuteriaContainerLanding:hover .description-boxLanding {
-            max-height: 400px;
-            opacity: 1;
-            margin-top: 1rem;
-        }
+.contentLanding {
+  transform: translateY(20px);
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
 
-        .samochodyContainerLanding:hover .contentLanding,
-        .nieruchomosciContainerLanding:hover .contentLanding,
-        .bizuteriaContainerLanding:hover .contentLanding {
-            transform: translateY(0);
-        }
-        .content {
-            transform: translateY(50px);
-            transition: transform 0.5s ease, opacity 0.5s ease;
-            position: relative;
-            z-index: 2;
-        }
+.description-boxLanding {
+  max-height: 0;
+  opacity: 0;
+  height: 30vh;
+  gap: 50px;
+  overflow: hidden;
+  transition: all 0.5s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
-        
-        .description-boxLanding {
-            max-height: 0;
-            opacity: 0;
-            overflow: hidden;
-            transition: all 0.5s ease;
-            
-            display: flex;
-            
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
+.samochodyContainerLanding:hover .description-boxLanding,
+.nieruchomosciContainerLanding:hover .description-boxLanding,
+.bizuteriaContainerLanding:hover .description-boxLanding {
+  max-height: 400px;
+  opacity: 1;
+  margin-top: 1rem;
+}
 
-        
-        .samochodyContainerLanding:hover .description-boxLanding,
-        .nieruchomosciContainerLanding:hover .description-boxLanding,
-        .bizuteriaContainerLanding:hover .description-boxLanding {
-            max-height: 200px;
-            opacity: 1;
-            margin-top: 1rem;
-        }
+.samochodyContainerLanding:hover .contentLanding,
+.nieruchomosciContainerLanding:hover .contentLanding,
+.bizuteriaContainerLanding:hover .contentLanding {
+  transform: translateY(0);
+}
 
-        .samochodyContainerLanding:hover .contentLanding,
-        .nieruchomosciContainerLanding:hover .contentLanding,
-        .bizuteriaContainerLanding:hover .contentLanding {
-            transform: translateY(0);
-        }
+.content {
+  transform: translateY(50px);
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  position: relative;
+  z-index: 2;
+}
 
-        
-        .contentLanding h2 {
-            font-size: 3rem;
-            margin-bottom: 0.5rem;
-            font-weight: 400;
-        }
-        .contentLanding h3 {
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            opacity: 0.8;
-            margin-bottom: 0.5rem;
-        }
-        .contentLanding p {
-            font-size: 0.8;
-            line-height: 1.6;
-            
-            
-            align-self: center;
-            width: 80%;
-        }
-        .btnLanding {
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            border: 2px solid white;
-            padding: 10px;
-            height: 3vw;
-            width: 10vw;
-            display: flex;
-            justify-content: center ;
-            align-items: center ;
-            font-size: 1vw;
-            font-family: 'HankenGrotesk', sans-serif;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: all 0.3s ease;
-            border-radius: 10px;
-        }
-        .btnLanding:hover {
-           background-color: white; 
-           color: black;
-          }
+.contentLanding h2 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  font-weight: 400;
+  color: white;
+}
 
-        
-        .overlay-gradientLanding {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 60%;
-            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
-            pointer-events: none;
-        }
+.contentLanding h3 {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  opacity: 0.8;
+  margin-bottom: 0.5rem;
+  color: white;
+}
 
+.contentLanding p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  align-self: center;
+  width: 80%;
+  color: white;
+}
+
+.btnLanding {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  border: 2px solid white;
+  padding: 10px 20px;
+  height: auto;
+  min-height: 48px;
+  width: auto;
+  min-width: 150px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  font-family: 'HankenGrotesk', sans-serif;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  border-radius: 10px;
+}
+
+.btnLanding:hover {
+  background-color: white;
+  color: black;
+}
+
+.overlay-gradientLanding {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+  pointer-events: none;
+}
+
+/* ==================== TABLET (768px - 1024px) ==================== */
+@media (max-width: 1024px) {
+  .heroContainerLanding {
+    padding-top: 50px;
+  }
+
+  .samochodyContainerLanding,
+  .nieruchomosciContainerLanding,
+  .bizuteriaContainerLanding {
+    padding: 2rem;
+  }
+
+  .contentLanding h2 {
+    font-size: 2.2rem;
+  }
+
+  .contentLanding h3 {
+    font-size: 0.85rem;
+    letter-spacing: 1.5px;
+  }
+
+  .contentLanding p {
+    font-size: 0.85rem;
+    width: 90%;
+  }
+
+  .description-boxLanding {
+    height: 25vh;
+    gap: 30px;
+  }
+
+  .btnLanding {
+    font-size: 0.9rem;
+    padding: 10px 16px;
+    min-width: 130px;
+    min-height: 44px;
+  }
+}
+
+/* ==================== MOBILE LANDSCAPE & SMALL TABLETS (576px - 768px) ==================== */
+@media (max-width: 768px) {
+  body {
+    overflow: auto;
+  }
+
+  .PageContainer {
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .heroContainerLanding {
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+    padding-top: 0;
+  }
+
+  .samochodyContainerLanding,
+  .nieruchomosciContainerLanding,
+  .bizuteriaContainerLanding {
+    flex: none;
+    height: 33.33vh;
+    min-height: 250px;
+    padding: 1.5rem;
+    filter: grayscale(0%) brightness(0.85);
+    justify-content: center;
+    align-items: center;
+  }
+
+  .nieruchomosciContainerLanding {
+    border-left: none;
+    border-right: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Disable hover effects on mobile - show content always */
+  .samochodyContainerLanding:hover,
+  .nieruchomosciContainerLanding:hover,
+  .bizuteriaContainerLanding:hover {
+    flex: none;
+    filter: grayscale(0%) brightness(0.85);
+  }
+
+  .heroContainerLanding:hover .samochodyContainerLanding:not(:hover),
+  .heroContainerLanding:hover .nieruchomosciContainerLanding:not(:hover),
+  .heroContainerLanding:hover .bizuteriaContainerLanding:not(:hover) {
+    filter: grayscale(0%) brightness(0.85);
+  }
+
+  .contentLanding {
+    transform: translateY(0);
+    text-align: center;
+  }
+
+  .contentLanding h2 {
+    font-size: 1.8rem;
+  }
+
+  .contentLanding h3 {
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+  }
+
+  /* Show description boxes by default on mobile */
+  .description-boxLanding {
+    max-height: 200px;
+    opacity: 1;
+    height: auto;
+    gap: 15px;
+    margin-top: 0.5rem;
+  }
+
+  .contentLanding p {
+    font-size: 0.8rem;
+    width: 100%;
+    display: none; /* Hide description on mobile to save space */
+  }
+
+  .btnLanding {
+    font-size: 0.85rem;
+    padding: 10px 20px;
+    min-width: 140px;
+    min-height: 42px;
+  }
+
+  .overlay-gradientLanding {
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3));
+  }
+}
+
+/* ==================== MOBILE PORTRAIT (up to 576px) ==================== */
+@media (max-width: 576px) {
+  .heroContainerLanding {
+    padding-top: 0;
+  }
+
+  .samochodyContainerLanding,
+  .nieruchomosciContainerLanding,
+  .bizuteriaContainerLanding {
+    min-height: 220px;
+    padding: 1rem;
+  }
+
+  .contentLanding h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .contentLanding h3 {
+    font-size: 0.7rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .description-boxLanding {
+    gap: 12px;
+  }
+
+  .btnLanding {
+    font-size: 0.8rem;
+    padding: 8px 16px;
+    min-width: 120px;
+    min-height: 40px;
+  }
+}
+
+/* ==================== VERY SMALL SCREENS (up to 375px) ==================== */
+@media (max-width: 375px) {
+  .samochodyContainerLanding,
+  .nieruchomosciContainerLanding,
+  .bizuteriaContainerLanding {
+    min-height: 200px;
+    padding: 0.75rem;
+  }
+
+  .contentLanding h2 {
+    font-size: 1.3rem;
+  }
+
+  .contentLanding h3 {
+    font-size: 0.65rem;
+  }
+
+  .btnLanding {
+    font-size: 0.75rem;
+    padding: 8px 14px;
+    min-width: 110px;
+    min-height: 38px;
+  }
+}
+
+/* ==================== LANDSCAPE MODE ON MOBILE ==================== */
+@media (max-width: 768px) and (orientation: landscape) {
+  .heroContainerLanding {
+    flex-direction: row;
+    height: 100vh;
+    min-height: auto;
+  }
+
+  .samochodyContainerLanding,
+  .nieruchomosciContainerLanding,
+  .bizuteriaContainerLanding {
+    flex: 1;
+    height: 100%;
+    min-height: auto;
+  }
+
+  .nieruchomosciContainerLanding {
+    border-top: none;
+    border-bottom: none;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .contentLanding h2 {
+    font-size: 1.4rem;
+  }
+
+  .contentLanding h3 {
+    font-size: 0.65rem;
+  }
+
+  .btnLanding {
+    font-size: 0.7rem;
+    padding: 6px 12px;
+    min-width: 100px;
+    min-height: 34px;
+  }
+
+  .description-boxLanding {
+    gap: 8px;
+  }
+}

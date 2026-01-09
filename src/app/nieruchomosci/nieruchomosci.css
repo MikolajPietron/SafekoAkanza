@@ -4,624 +4,729 @@
   font-weight: normal;
   font-style: normal;
 }
-.profileMenu{
-  position: absolute;
-  top: 100px;
-  right: 20px;
-  height: 40vh;
-  width: 15vw;
-  
-  opacity: 0;
+
+* {
+  box-sizing: border-box;
 }
-.profileMenu.show{
-  opacity: 1;
-  transition: opacity 0.7s ease;
-}
-.UserProfileButton{
-  position: absolute;
-  display: flex;
-  right: 20px;
-  height: 40px;
-  width: 40px;
-  top: 10px;
-  border-radius: 10px ;
-  border: 2px solid black;
-  cursor: pointer;
-}
-.UserProfileImage{
-  position: absolute;
-  height: 100%;
+
+/* ==================== PAGE LAYOUT ==================== */
+.nieruchomosciContainer {
+  min-height: 100vh;
   width: 100%;
-  left: 50%;
-  top: 50%;
-  border-radius: 10px;
-  transform: translate(-50%, -50%);
+  background: #f8f9fa;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px 120px;
+  position: relative;
+  overflow-x: hidden;
 }
-.header{
-  
+
+/* ==================== DECORATIVE BACKGROUND ==================== */
+.nieruchomosciContainer::before,
+.nieruchomosciContainer::after {
+  content: '';
   position: fixed;
-  display: flex;
-  top: 0px;
-  
-  height: 60px;
-  width: 100%;
-  background-color: white;
-  z-index: 1000000;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
 }
-.headerText {
-  height: 5vh;
-  width: fit-content;
+
+.nieruchomosciContainer::before {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(29, 29, 27, 0.025) 0%, transparent 70%);
+  top: -100px;
+  left: -200px;
+}
+
+.nieruchomosciContainer::after {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(29, 29, 27, 0.025) 0%, transparent 70%);
+  bottom: -150px;
+  right: -250px;
+}
+
+/* ==================== SIDE PANELS ==================== */
+.sidePanel {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
   display: flex;
-  flex-direction: row;
-  position: absolute;
-  top: 10px;
-  right: 10%;
-  font-family: "HankenGrotesk";
-  
+  flex-direction: column;
+  gap: 16px;
+  z-index: 10;
+}
+
+.leftPanel {
+  left: 48px;
+}
+
+.rightPanel {
+  right: 48px;
+}
+
+/* Tip Card */
+.tipCard {
+  width: 220px;
+  padding: 28px 24px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.tipIconWrapper {
+  width: 56px;
+  height: 56px;
+  background: #f5f5f5;
+  border-radius: 16px;
   display: flex;
-  gap: 50px;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+
+.tipIconWrapper svg {
+  font-size: 28px;
   color: #1d1d1b;
+}
+
+.tipCard h4 {
+  font-family: 'HankenGrotesk', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1d1d1b;
+  margin: 0 0 10px 0;
+}
+
+.tipCard p {
+  font-family: 'HankenGrotesk', sans-serif;
+  font-size: 0.85rem;
+  color: #777;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Benefit Cards */
+.benefitCard {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 22px;
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.benefitCard:hover {
+  transform: translateX(-4px);
+  box-shadow: 0 6px 28px rgba(0, 0, 0, 0.08);
+}
+
+.benefitCard svg {
+  font-size: 22px;
+  color: #1d1d1b;
+}
+
+.benefitCard span {
+  font-family: 'HankenGrotesk', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #1d1d1b;
+  white-space: nowrap;
+}
+
+/* Hide side panels on smaller screens */
+@media (max-width: 1300px) {
+  .sidePanel {
+    display: none;
+  }
+}
+
+/* ==================== PROGRESS BAR ==================== */
+.progressBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
+  padding-top: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.progressStep {
+  display: flex;
   align-items: center;
 }
 
-.UserIcon{
-  position: absolute;
-  right: 10px;
-  top: 5px;
-  
-  
-}
-.Logout{
-  position: absolute;
-  left: 50%;
-  z-index: 1000;
-}
-.LogoIcon{
-  width: 15vw;
-  height: fit-content;
-  position: absolute ;
-  left: -85px;
-  top: -40px;
-  
+.progressDot {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'HankenGrotesk', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #888;
+  transition: all 0.3s ease;
 }
 
-.UserName{
-  position: absolute;
-  right: 70px;
-  top: 20px;
-  color: black;
-  font-weight: 800;
-  font-family: 'HankenGrotesk';
+.progressStep.active .progressDot {
+  background: #1d1d1b;
+  color: white;
 }
 
-.nieruchomosciContainer {
-    display: flex;
-    flex-direction: column; /* optional: stack content vertically */
-    align-items: center;
-    justify-content: flex-start; /* let it grow from top */
-    min-height: 100vh; /* at least full viewport */
-    width: 100vw;
-    background-color: white;
-    overflow-y: auto; /* enable vertical scrolling */
+.progressStep.active .progressDot svg {
+  font-size: 20px;
+  color: white;
 }
 
+.progressLine {
+  width: 40px;
+  height: 3px;
+  background: #e0e0e0;
+  margin: 0 8px;
+  border-radius: 2px;
+  transition: background 0.3s ease;
+}
+
+.progressStep.active .progressLine {
+  background: #1d1d1b;
+}
+
+/* ==================== FORM ==================== */
 .nieruchomosciForm {
-    width: 100%;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100%; /* allow form to grow with content */
-    
-}
-
-.coChceszZrobic{
-    color: #1d1d1b;
-    height: 7%;
-    width: 50%;
-    margin-top: 150px;
-    display: flex;
-    font-family: "HankenGrotesk";
-    text-align: center;
-    font-size: 2.5vw;
-    font-weight: 900;
-    justify-content: center;
-    align-items: center;
-}
-.coChceszZrobicButtons{
-    
-    height: 20%;
-    width: 50%;
-    margin-top: 50px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-.coChceszZrobicButtons button[type="button"] {
-    height: 15vh;
-    background-color: transparent;
-    border: 4px solid #1d1d1b;
-    color: #1d1d1b;
-    border-radius: 15px;
-    width: 10vw;
-    cursor: pointer;
-    display: flex;
-    place-items: center;
-    justify-content: center;
-    gap: 35px;
-    flex-direction: column;
-    font-family: "HankenGrotesk";
-    font-size: 1.2vw;
-    transition: all 0.3s ease;
-}
-.coChceszZrobicButtons button[type="button"]:hover {
-    background-color: rgb(255, 255, 255);
-    color: black;
-    transform: scale(1.05);
-}
-.kontaktZTobaText{
-    padding: 10px;
-    border: 2px solid #1d1d1b;
-    height: 20%;
-    width: 100%;
-    color: black;
-    background-color: white;
-    display: flex;
-    border-radius: 15px;
-    flex-direction: row;
-    font-family: "HankenGrotesk";
-    text-align: center;
-    font-size: 2vw;
-    font-weight: 900;
-    justify-content: start;
-    align-items: center;
-    letter-spacing: 2px;
-    gap: 30px;
-}
-.kontaktZTobaInput{
-    
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    width: 100%;
-    height: 25vh;
-    place-items: center;
-    
-    
-}
-.kontaktZTobaInput input{
-    width: 70%;
-    height: 50%;
-    border: none;
-    background-color: transparent;
-    border: 1px solid #1d1d1b;
-    border-radius: 5px;
-    color: #1d1d1b;
-    font-family: "HankenGrotesk";
-    font-size: 1.2vw;
-}
-.kontaktZTobaInput select{
-    width: 70%;
-    height: 50%;
-    border: none;
-    background-color: transparent;
-    border: 1px solid #1d1d1b;
-    border-radius: 5px;
-    color: #1d1d1b;
-    font-family: "HankenGrotesk";
-    font-size: 1.2vw;
-    text-align: center;
-}
-.kontaktZTobaInput select:focus{
-
-  background-color: #f0f8ff;
-  outline: none; /* remove default blue outline */
-  color: black;
-}
-.kontaktZTobaInput input::placeholder{
-    text-align: center;
-    font-size: 1vw;
-    font-family: 'HankenGrotesk';
-}
-.kontaktModal{
-    width: 50%;
-    height: 40vh;
-    margin-top: 150px;
-    
-    display: flex;
-    position: relative;
-    flex-direction: column;
-    align-items: center;
-    justify-content: baseline;
-    opacity: 0;
-}
-.kontaktModal.show {
-    opacity: 1;
-    transition: opacity 1s ease;
-}
-.metrazModal{
-    width: 100%;
-    height: 10vh;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    
-    
-    place-items: center;
-    
-}
-.metrazModalText{
-    padding: 10px;
-    font-family: "HankenGrotesk";
-    border: 2px solid #1d1d1b;
-    font-size: 1vw;
-    text-align: center;
-    justify-content: flex-start;
-    display: flex;
-    flex-direction: row;
-    gap: 25px;
-    align-items: center;
-    letter-spacing: 2px;
-    background-color: white;
-    border-radius: 15px;
-    color: #1d1d1b;
-    height: 8vh;
-    width: 100%;
-}
-.metrazModalContainer{
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    height: 25vh;
-    
-    width: 50%;
-    margin-top: 150px;
-    opacity: 0;
-
-}
-.metrazModalContainer.show {
-    opacity: 1;
-    transition: opacity 1s ease;
-}
-.metrazModal input{
-    width: 70%;
-    height: 60%;
-    border: none;
-    background-color: transparent;
-    border: 1px solid #1d1d1b;
-    border-radius: 5px;
-    color: #1d1d1b;
-    font-family: "HankenGrotesk";
-    font-size: 1.2vw;
-    text-align: center;
-}
-.dalej2{
-    display: flex;
-    position: absolute;
-    bottom: 10px;
-    right: 20px;
-    height: 4vh;
-    width: 5vw;
-    border-radius: 5px;
-    background-color: #1d1d1b;
-    border: 2px solid #1d1d1b;
-    color: rgb(255, 255, 255);
-    font-family: "HankenGrotesk";
-    font-size: 1.2vw;
-    justify-content: center;
-    align-items: center;
-    font-weight: 900;
-    text-align: center;
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-.dalej2:hover{
-    background-color: rgb(0, 0, 0);
-    color: white;
-}
-.dalej{
-    display: flex;
-    position: absolute;
-    bottom: 10px;
-    right: 20px;
-    height: 4vh;
-    width: 5vw;
-    border-radius: 5px;
-    background-color: #1d1d1b;
-    border: 2px solid #1d1d1b;
-    color: rgb(255, 255, 255);
-    font-family: "HankenGrotesk";
-    font-size: 1.2vw;
-    justify-content: center;
-    align-items: center;
-    font-weight: 900;
-    text-align: center;
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-.dalej2{
-    display: flex;
-    position: absolute;
-    bottom: 10px;
-    right: 20px;
-    height: 4vh;
-    width: 5vw;
-    border-radius: 5px;
-    background-color: #1d1d1b;
-    border: 2px solid #1d1d1b;
-    color: rgb(255, 255, 255);
-    font-family: "HankenGrotesk";
-    font-size: 1.2vw;
-    justify-content: center;
-    align-items: center;
-    font-weight: 900;
-    text-align: center;
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-.dalej:hover{
-    background-color: rgb(0, 0, 0);
-    color: white;
-}
-.dalej3{
-    display: flex;
-    position: absolute;
-    bottom: 10px;
-    right: 20px;
-    height: 4vh;
-    width: 5vw;
-    border-radius: 5px;
-    background-color: #1d1d1b;
-    border: 2px solid #1d1d1b;
-    color: rgb(255, 255, 255);
-    font-family: "HankenGrotesk";
-    font-size: 1.2vw;
-    justify-content: center;
-    align-items: center;
-    font-weight: 900;
-    text-align: center;
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-.dalej3:hover{
-    background-color: rgb(0, 0, 0);
-    color: white;
-}
-.dalej4{
-    display: flex;
-    position: absolute;
-    bottom: 10px;
-    right: 20px;
-    height: 4vh;
-    width: 5vw;
-    border-radius: 5px;
-    background-color: #1d1d1b;
-    border: 2px solid #1d1d1b;
-    color: rgb(255, 255, 255);
-    font-family: "HankenGrotesk";
-    font-size: 1.2vw;
-    justify-content: center;
-    align-items: center;
-    font-weight: 900;
-    text-align: center;
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-.dalej4:hover{
-    background-color: rgb(0, 0, 0);
-    color: white;
-}
-.photosModalContainer{
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    height: 40vh;
-    
-    width: 50%;
-    margin-top: 150px;
-    opacity: 0;
-}
-.photosModalContainer.show {
-    opacity: 1;
-    transition: opacity 1s ease;
-}
-.photosModal{
-    border: 2px solid #1d1d1b;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-    width: 50vw;
-    height: 25vh;
-    position: relative;
-    display: flex;
-    
-    align-items: center;
-    justify-content: center;
-}
-.photosModalText{
-    
-    border: 2px solid #1d1d1b;
-    background-color: white;
-    border-top-right-radius: 15px;
-    border-top-left-radius: 15px;
-    color: #1d1d1b;
-    padding: 10px;
-    width: 50vw;
-    height: 8vh;
-    display: flex;
-    flex-direction: row;
-    gap: 25px;
-    font-size: 1vw;
-    align-items: center;
-    letter-spacing: 2px;
-    font-family: 'HankenGrotesk';
-    font-weight: 900;
-
-}
-
-.Photo1input{
-  height: 100%;
   width: 100%;
-  background-color: transparent;
-  
-  border: none;
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ==================== FORM SECTIONS ==================== */
+.formSection {
+  background: white;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.formSection.hidden {
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+  display: none;
+}
+
+.formSection.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  display: block;
+}
+
+/* ==================== SECTION HEADER ==================== */
+.sectionHeader {
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.stepBadge {
+  display: inline-block;
+  padding: 6px 16px;
+  background: #f0f0f0;
+  color: #666;
+  font-family: 'HankenGrotesk', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+
+.sectionTitle {
+  font-family: 'HankenGrotesk', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1d1d1b;
+  margin: 0 0 10px 0;
+  line-height: 1.3;
+}
+
+.sectionSubtitle {
+  font-family: 'HankenGrotesk', sans-serif;
+  font-size: 0.9rem;
+  color: #999;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ==================== PROPERTY TYPE SELECTION ==================== */
+.propertyTypeGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.propertyTypeCard {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 20px;
+  background: #fafafa;
+  border: 2px solid #eee;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-align: left;
+  position: relative;
+}
+
+.propertyTypeCard:hover {
+  border-color: #ccc;
+  background: white;
+}
+
+.propertyTypeCard.selected {
+  border-color: #1d1d1b;
+  background: white;
+}
+
+.propertyIconWrapper {
+  width: 48px;
+  height: 48px;
+  background: #1d1d1b;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.propertyIconWrapper svg {
+  font-size: 24px;
+  color: white;
+}
+
+.propertyTypeInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.propertyTypeName {
+  font-family: 'HankenGrotesk', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1d1d1b;
+}
+
+.propertyTypeDesc {
+  font-family: 'HankenGrotesk', sans-serif;
+  font-size: 0.8rem;
+  color: #999;
+}
+
+.selectedCheck {
+  color: #1d1d1b;
+}
+
+.selectedCheck svg {
+  font-size: 24px;
+}
+
+/* ==================== INPUT STYLES ==================== */
+.inputGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.inputGrid.twoColumns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.inputStack {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.inputLabel {
+  font-family: 'HankenGrotesk', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.formInput,
+.formSelect,
+.formTextarea {
+  width: 100%;
+  height: 52px;
+  padding: 0 16px;
+  border: 2px solid #e8e8e8;
+  border-radius: 12px;
+  background: #fafafa;
+  font-family: 'HankenGrotesk', sans-serif;
+  font-size: 1rem;
+  color: #1d1d1b;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.formTextarea {
+  height: auto;
+  padding: 16px;
+  resize: vertical;
+  min-height: 120px;
+  line-height: 1.5;
+}
+
+.formInput:focus,
+.formSelect:focus,
+.formTextarea:focus {
+  border-color: #1d1d1b;
+  background: white;
+}
+
+.formInput::placeholder,
+.formTextarea::placeholder {
+  color: #bbb;
+}
+
+.formSelect {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 44px;
+}
+
+.inputWithSuffix {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.inputWithSuffix .formInput {
+  padding-right: 56px;
+}
+
+.inputWithSuffix.large .formInput {
+  height: 64px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding-right: 70px;
+  text-align: center;
+  padding-left: 20px;
+}
+
+.inputSuffix {
+  position: absolute;
+  right: 18px;
+  font-family: 'HankenGrotesk', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #888;
+  pointer-events: none;
+}
+
+.inputWithSuffix.large .inputSuffix {
+  font-size: 1.1rem;
+  right: 20px;
+}
+
+.priceInputWrapper {
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+/* ==================== PHOTO UPLOAD ==================== */
+.photoUploadArea {
+  position: relative;
+}
+
+.photoInput {
+  position: absolute;
+  inset: 0;
   opacity: 0;
   cursor: pointer;
-  z-index: 1000;
-}
-.addPhotoIcon{
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  
-}
-.Photo1{
-width: 70%;
-height: 80%;
-border: 4px solid rgb(0, 0, 0);
-border-radius: 20px ;
-position: relative;
+  z-index: 10;
 }
 
-.tytulModal{
-    
-    
-    width: 50vw;
-    display: flex;
-    position: relative;
-    height: 35vh;
-    flex-direction: column;
-    margin-top: 150px;
-    opacity: 0;
+.photoUploadLabel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 48px 24px;
+  border: 2px dashed #ddd;
+  border-radius: 16px;
+  background: #fafafa;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
 
+.photoUploadArea:hover .photoUploadLabel {
+  border-color: #1d1d1b;
+  background: #f5f5f5;
 }
-.tytulModal.show{
-    opacity: 1;
-    transition: opacity 1s ease;
-}
-.tytulModalText{
-    height: 8vh;
-    display: flex;
-    flex-direction: row;
-    gap: 25px;
-    padding: 10px;
-    font-size: 1vw;
-    justify-content: start;
-    letter-spacing: 2px;
-    align-items: center;
-    border: 2px solid #1d1d1b;
-    border-radius: 15px;
-    background-color: white;
-    color: #1d1d1b;
-}
-.tytulModalContent{
-    width: 50vw;
-    height: 20vh;
-    position: relative;
-    justify-content: center;
-    
-    display: flex;
-    flex-direction: row;
-    place-items: center;
-    gap: 10px;
-}
-.tytulModalContent input{
-    width:40%;
-    height: 7vh;
-    border: none;
-    background-color: transparent;
-    border: 1px solid #1d1d1b;
-    border-radius: 5px;
-    color: #1d1d1b;
-    font-family: "HankenGrotesk";
-    font-size: 1.2vw;
-    text-align: center;
-}
-.cenaModal{
-    margin-top: 150px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    width: 50vw;
-    height: 10vw;
-    
-    place-items: center;
-    opacity: 0;
 
+.uploadIconWrapper {
+  width: 72px;
+  height: 72px;
+  background: #eee;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
 }
-.cenaModal.show{
-    opacity: 1;
-    transition: opacity 1s ease;
+
+.uploadIconWrapper svg {
+  font-size: 32px;
+  color: #888;
 }
-.cenaModalText{
-    width: 100%;
-    height: 8vh;
-    padding: 10px;
-    border-radius: 15px;
-    background-color: white;
-    color: #1d1d1b;
-    border: 2px solid #1d1d1b;
-    display: flex;
-    flex-direction: row;
-    gap: 25px;
-    font-size: 1vw;
-    justify-content: flex-start;
-    letter-spacing: 2px;
-    align-items: center;
+
+.photoUploadArea:hover .uploadIconWrapper {
+  background: #1d1d1b;
 }
-.cenaModalContent{
-    width: 100%;
-    position: relative;
-    justify-content: center;
-    display: flex;
-    height: 15vh;
-    
-    flex-direction: column;
-    gap: 10px;
-    place-items: center;
+
+.photoUploadArea:hover .uploadIconWrapper svg {
+  color: white;
 }
-.cenaModalContent input{
-    width: 30%;
-    height: 7vh;
-    border: none;
-    background-color: transparent;
-    border: 1px solid #1d1d1b;
-    border-radius: 5px;
-    color: #1d1d1b;
-    font-family: "HankenGrotesk";
-    font-size: 1.2vw;
-    text-align: center;
+
+.uploadTitle {
+  font-family: 'HankenGrotesk', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1d1d1b;
+  text-align: center;
 }
-.dodajOgłoszenie{
-    position: absolute;
-    bottom: 5px;
-    right: 5px;
-    height: 6vh;
-    width: 10vw;
-    background-color: #1d1d1b;
-    
-    font-family: "HankenGrotesk";
-    font-size: 1.2vw;
-    cursor: pointer;
-    border: 2px solid #1d1d1b;
-    color: #ffffff;
-    font-weight: 900;
-    transition: all 0.3s ease;
+
+.uploadHint {
+  font-family: 'HankenGrotesk', sans-serif;
+  font-size: 0.8rem;
+  color: #999;
 }
-.dodajOgłoszenie:hover{
-    background-color: rgb(0, 0, 0);
-    color: white;
-    
+
+/* ==================== BUTTONS ==================== */
+.nextButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  height: 54px;
+  margin-top: 32px;
+  background: #1d1d1b;
+  border: none;
+  border-radius: 12px;
+  color: white;
+  font-family: 'HankenGrotesk', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
-.dodajModal{
-    position: relative;
-    width: 50%;
-    height: 10vh;
-    
+
+.nextButton:hover {
+  background: #333;
+  transform: translateY(-2px);
 }
-.placeholder{
-    
-    height: 500px;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+
+.nextButton svg {
+  font-size: 20px;
+}
+
+.submitButton {
+  width: 100%;
+  height: 58px;
+  margin-top: 32px;
+  background: #1d1d1b;
+  border: none;
+  border-radius: 14px;
+  color: white;
+  font-family: 'HankenGrotesk', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.submitButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+}
+
+.submitButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ==================== RESPONSIVE - TABLET ==================== */
+@media (max-width: 768px) {
+  .nieruchomosciContainer {
+    padding: 30px 16px 100px;
+  }
+
+  .progressDot {
+    width: 32px;
+    height: 32px;
+    font-size: 0.8rem;
+  }
+
+  .progressLine {
+    width: 24px;
+  }
+
+  .formSection {
+    padding: 32px 24px;
+    border-radius: 16px;
+  }
+
+  .sectionHeader {
+    margin-bottom: 28px;
+  }
+
+  .sectionTitle {
+    font-size: 1.35rem;
+  }
+
+  .inputGrid.twoColumns {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ==================== RESPONSIVE - MOBILE ==================== */
+@media (max-width: 480px) {
+  .nieruchomosciContainer {
+    padding: 20px 12px 80px;
+  }
+
+  .progressBar {
+    margin-bottom: 24px;
+  }
+
+  .progressDot {
+    width: 28px;
+    height: 28px;
+    font-size: 0.75rem;
+  }
+
+  .progressLine {
+    width: 16px;
+    margin: 0 4px;
+  }
+
+  .formSection {
+    padding: 28px 20px;
+  }
+
+  .sectionHeader {
+    margin-bottom: 24px;
+  }
+
+  .stepBadge {
+    font-size: 0.7rem;
+    padding: 5px 12px;
+    margin-bottom: 12px;
+  }
+
+  .sectionTitle {
+    font-size: 1.2rem;
+  }
+
+  .sectionSubtitle {
+    font-size: 0.85rem;
+  }
+
+  .inputGrid,
+  .inputGrid.twoColumns {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .inputLabel {
+    font-size: 0.75rem;
+  }
+
+  .propertyTypeCard {
+    padding: 14px 16px;
+  }
+
+  .propertyIconWrapper {
+    width: 42px;
+    height: 42px;
+  }
+
+  .propertyIconWrapper svg {
+    font-size: 20px;
+  }
+
+  .propertyTypeName {
+    font-size: 0.95rem;
+  }
+
+  .formInput,
+  .formSelect {
+    height: 50px;
+    font-size: 0.95rem;
+  }
+
+  .inputWithSuffix.large .formInput {
+    height: 58px;
+    font-size: 1.3rem;
+  }
+
+  .nextButton {
+    height: 50px;
+    margin-top: 28px;
+  }
+
+  .submitButton {
+    height: 54px;
+    font-size: 1rem;
+    margin-top: 28px;
+  }
+
+  .photoUploadLabel {
+    padding: 36px 20px;
+  }
+
+  .uploadIconWrapper {
+    width: 60px;
+    height: 60px;
+  }
+
+  .uploadIconWrapper svg {
+    font-size: 28px;
+  }
 }

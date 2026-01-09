@@ -263,32 +263,7 @@ const handleBrandChange = (event) => {
 
     return(
         <div className="samochodyContainer">
-          <div className={`profileMenu ${isShowProfileMenu ? 'show' : ''}`}>
-                <ProfileMenu />
-              </div>
-              <div className="header">
-                <div className="headerText">
-                  <a href="Kontakt">Kontakt</a>
-                  <a href="O-nas">O nas</a>
-                </div>
-                <img src= "/default_logo.svg" className="LogoIcon" onClick={() => router.push("/oferty")}/>
-                
-                
-                {session?.user ? (
-                  <>
-                  <button className="UserProfileButton" type='button' onClick={toggleProfileMenu}>
-                    <img
-                      src={session.user.image}
-                      alt={session.user.name}
-                      className="UserProfileImage"
-                    />
-                  </button>
-                    
-                  </>
-                ) : (
-                  <UserIcon style={{ fontSize: 50, color: '#1d1d1b' }} className="UserIcon" />
-                )}
-              </div>
+          
             <form className="samochodyForm">        
                 <div className="coChceszZrobic">
           JAKI POJAZD CHCESZ SPRZEDAĆ?
